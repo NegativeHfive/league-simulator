@@ -14,4 +14,9 @@
             </div>
         </div>
     </div>
+
+    <h1 style="color: white; font-size: 3em; text-align: center;">Welcome to league Simulator {{ Auth::user()->name}}</h1>
+    <div class="links">
+        
+    </div>
 </x-app-layout>
