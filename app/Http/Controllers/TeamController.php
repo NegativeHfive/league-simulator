@@ -35,4 +35,12 @@ class TeamController extends Controller
 
         return redirect()->back()->with('success', 'Logo uploaded succesfully');
     }
+
+    //index to show all the data from the table teams
+    public function index()
+    {
+        $teams = Team::all();
+
+        return view('teams.index', compact('teams'));
+    }
 }
