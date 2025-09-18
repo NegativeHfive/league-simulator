@@ -25,3 +25,5 @@ require __DIR__.'/auth.php';
 Route::get('teams/team', [TeamController::class, 'create']);
 Route::post('/teams', [TeamController::class, 'store'])->name('teams.store');
 Route::get('/teams',[TeamController::class, 'index'])->name('teams.index');
+Route::get('teams/{id}/edit', [TeamController::class , 'edit'])->name('teams.edit');
+Route::put('/teams/{id}', [TeamController::class, 'update'])->name('teams.update');

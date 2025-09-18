@@ -15,6 +15,7 @@
                 <img src="{{asset('storage/' .$team->logo)}}" alt="{{$team->name}} width='200'">
                 <p>{{$team->description}}</p>
                 <p>{{$team->city}}</p>
+                <a href="{{route('teams.edit', $team->id)}}">Edit</a>
             </li>
         @endforeach
     </ul>
