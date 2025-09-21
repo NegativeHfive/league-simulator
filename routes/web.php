@@ -27,3 +27,4 @@ Route::post('/teams', [TeamController::class, 'store'])->name('teams.store');
 Route::get('/teams',[TeamController::class, 'index'])->name('teams.index');
 Route::get('teams/{id}/edit', [TeamController::class , 'edit'])->name('teams.edit');
 Route::put('/teams/{id}', [TeamController::class, 'update'])->name('teams.update');
+Route::delete('teams/{id}/delete', [TeamController::class, 'delete'])->name('teams.delete');

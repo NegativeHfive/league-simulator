@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
@@ -80,5 +81,21 @@ class TeamController extends Controller
         $team->save(); // saves the team to the database
 
         return redirect()->route('teams.index')->with('success', 'Team updated');
+    }
+
+    //delete function
+    public function delete($id)
+    {
+        $team = Team::findOrFail($id);
+
+        //deleting image from the storage folder
+        if($team->logoPath && \Storage::disk('public')->exists($team->logoPath))
+        {
+            \Storage::disk('public')->delete($team->logoPath);
+        }
+
+        $team->delete();
+        
+        return redirect()->route('teams.index')->with('success', 'Team deleted');
     }
 }

@@ -16,6 +16,12 @@
                 <p>{{$team->description}}</p>
                 <p>{{$team->city}}</p>
                 <a href="{{route('teams.edit', $team->id)}}">Edit</a>
+                
+                <form action="{{route('teams.delete', $team->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="return confirm('Are you sure you want to delete? ')">Delete</button>
+                </form>
             </li>
         @endforeach
     </ul>
