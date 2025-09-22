@@ -43,39 +43,36 @@ class RankingController extends Controller
 
             //$goalDifference = $goalsAgainst - $goalsScored;
 
-            foreach($matches as $match){
-                if($match->teamId == $team->id){
-                    $totalPoints += $match->team1points;
+            foreach ($matches as $match) {
+                if ($match->team1Id == $team->id) {
+                    // Team is team1
                     $goalsScored += $match->team1score;
                     $goalsAgainst += $match->team2score;
 
-                    //checking to see if the team won, lost or drew
-                    if($match->team1score > $match->team2score){
+                    if ($match->team1score > $match->team2score) {
                         $wins++;
-                    } 
-                    elseif($match->team1score < $match->team2score){
+                        $totalPoints += 3;
+                    } elseif ($match->team1score < $match->team2score) {
                         $losses++;
-                    }
-                    else{
+                        // 0 points
+                    } else {
                         $draws++;
+                        $totalPoints += 1;
                     }
-                }
-                else{
+                } else {
                     // Team is team2
-                    $totalPoints += $match->team2points;
                     $goalsScored += $match->team2score;
                     $goalsAgainst += $match->team1score;
 
-                    if($match->team2score> $match->team1score)
-                    {
+                    if ($match->team2score > $match->team1score) {
                         $wins++;
-                    }
-                    elseif($match->team2score < $match->team1score)
-                    {
+                        $totalPoints += 3;
+                    } elseif ($match->team2score < $match->team1score) {
                         $losses++;
-                    }
-                    else{
+                        // 0 points
+                    } else {
                         $draws++;
+                        $totalPoints += 1;
                     }
                 }
             }
