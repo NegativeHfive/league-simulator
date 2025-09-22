@@ -13,13 +13,19 @@
         <button type="submit">Generate Fixtures</button>
     </form><br>
 
-     <form action="{{ route('match.delete') }}" method="POST">
+    <form action="{{ route('match.delete') }}" method="POST">
         @csrf
         @method('DELETE')
         <button type="submit" onclick="return confirm('Are you sure you want to delete all matches?')">
             Delete All Matches
         </button>
     </form>
+
+    <form action="{{ route('ranking.calculateRankings') }}" method="POST">
+        @csrf
+        <button type="submit">View Rankings</button>
+    </form><br>
+
 
     <h1>All Matches</h1>
     @if(session('success'))

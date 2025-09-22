@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MatchController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RankingController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TeamFormController;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,6 @@ Route::delete('teams/{id}/delete', [TeamController::class, 'delete'])->name('tea
 Route::post('teams/match', [MatchController::class, 'generateMatch'])->name('match.generateMatch');
 Route::delete('teams/match', [MatchController::class, 'delete'])->name('match.delete');
 Route::get('teams/match', [MatchController::class, 'index'])->name('match.index');
+Route::get('teams/ranking', [RankingController::class, 'index'])->name('ranking.index');
+Route::post('teams/ranking', [RankingController::class, 'calculateRankings'])->name('ranking.calculateRankings');
+Route::delete('teams/delete', [RankingController::class, 'delete'])->name('ranking.delete');
