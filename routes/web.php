@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MatchController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TeamFormController;
@@ -28,3 +29,5 @@ Route::get('/teams',[TeamController::class, 'index'])->name('teams.index');
 Route::get('teams/{id}/edit', [TeamController::class , 'edit'])->name('teams.edit');
 Route::put('/teams/{id}', [TeamController::class, 'update'])->name('teams.update');
 Route::delete('teams/{id}/delete', [TeamController::class, 'delete'])->name('teams.delete');
+Route::post('teams/match', [MatchController::class, 'generateMatch'])->name('match.generateMatch');
+Route::delete('teams/match/delete', [MatchController::class, 'delete'])->name('match.delete');
