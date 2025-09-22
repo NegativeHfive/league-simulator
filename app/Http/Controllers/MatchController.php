@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class MatchController extends Controller
 {
+    //index in getting all the teams
+    public function index()
+    {
+        $matches = Matches::all();
+        return view('matches.index', compact('matches'));
+    }
+
     //generating the Match function
     public function generateMatch()
     {
@@ -22,7 +29,7 @@ class MatchController extends Controller
                         $query->where('team1Id', $team2->id)->where('team2Id',$team1->id);
                     })->exists();
 
-                    if($exists)
+                    if(!$exists)
                     {
                         //create a new Match(scores will be filled in too)
                         $match = Matches::create([

@@ -30,4 +30,5 @@ Route::get('teams/{id}/edit', [TeamController::class , 'edit'])->name('teams.edi
 Route::put('/teams/{id}', [TeamController::class, 'update'])->name('teams.update');
 Route::delete('teams/{id}/delete', [TeamController::class, 'delete'])->name('teams.delete');
 Route::post('teams/match', [MatchController::class, 'generateMatch'])->name('match.generateMatch');
-Route::delete('teams/match/delete', [MatchController::class, 'delete'])->name('match.delete');
+Route::delete('teams/match', [MatchController::class, 'delete'])->name('match.delete');
+Route::get('teams/match', [MatchController::class, 'index'])->name('match.index');

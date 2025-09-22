@@ -5,3 +5,6 @@ Adding a team to the database complete
 Succesfully showed the teams from the table teams in the database. 
 Adding 19 more teams to the database
 CRUD methods added to TeamController. 
+Made a few functions in the Match Controller and Model. 
+Teams can now play against each other once, each team gets 3 if they win 0 for lose and 
+1 for a draw.
