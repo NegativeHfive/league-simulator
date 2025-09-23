@@ -1,0 +1,35 @@
+body{
+    background-color: white;
+}
+
+.teams {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 per row */
+        gap: 20px; /* spacing between items */
+    }
+
+.team-card {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: center;
+        background: #f9f9f9;
+        border-radius: 8px;
+}
+
+.team-card img {
+        max-width: 10%;
+        height: auto;
+        margin-bottom: 10px;
+}
+
+h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+p{
+    font-family: fantasy;
+}
+
+h4{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

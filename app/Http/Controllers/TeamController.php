@@ -55,33 +55,32 @@ class TeamController extends Controller
     //update the selected team
     public function update(Request $request, $id)
     {
-        // finding the specific team
+       try {
         $team = Team::findOrFail($id);
-        // validating the input
+
         $request->validate([
             'name' => 'required|string|max:255',
-            'description'=> 'nullable|string',
-            'logo' => 'required|image|mimes:jpeg,jpg,png,gif',
+            'description' => 'nullable|string',
+            'logo' => 'nullable|image|mimes:jpeg,jpg,png,gif',
             'city' => 'required|string|max:255'
         ]);
 
-        //update the fields
         $team->name = $request->name;
         $team->description = $request->description;
         $team->city = $request->city;
 
-        //handle the new image
-        if($request->hasFile('logo'))
-        {
-            // store the new image
+        if ($request->hasFile('logo')) {
             $imagePath = $request->file('logo')->store('logos', 'public');
             $team->logo = $imagePath;
         }
 
-        $team->save(); // saves the team to the database
+        $team->save();
 
-        return redirect()->route('teams.index')->with('success', 'Team updated');
-    }
+        return redirect()->route('teams.index')->with('success', 'Team updated successfully!');
+    } catch (\Exception $e) {
+        return redirect()->back()->withErrors(['error' => 'Update failed: ' . $e->getMessage()]);
+    }    
+}
 
     //delete function
     public function delete($id)
