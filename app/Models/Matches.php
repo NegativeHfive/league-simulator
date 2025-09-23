@@ -25,7 +25,7 @@ class Matches extends Model
     //calculating the amount of points function.
     public function calculatePoints()
     {
-        if ($this->team1score > $this->teams2score)
+        if ($this->team1score > $this->team2score)
         {
             $this->team1points = 3;
             $this->team2points = 0;
@@ -34,6 +34,10 @@ class Matches extends Model
         {
             $this->team1points = 0;
             $this->team2points = 3;
+        }
+        elseif($this->team1score === $this->team2score){
+            $this->team1points = 1;
+            $this->team2points = 1;
         }
         else{
             $this->team1points = 1;

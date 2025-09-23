@@ -18,7 +18,7 @@ class RankingController extends Controller
 
     }
 
-    //deleting all the rankings
+    //deleting all the rankings 
     public function delete()
     {
         Ranking::truncate();
@@ -51,13 +51,11 @@ class RankingController extends Controller
 
                     if ($match->team1score > $match->team2score) {
                         $wins++;
-                        $totalPoints += 3;
                     } elseif ($match->team1score < $match->team2score) {
                         $losses++;
                         // 0 points
                     } else {
                         $draws++;
-                        $totalPoints += 1;
                     }
                 } else {
                     // Team is team2
@@ -66,13 +64,11 @@ class RankingController extends Controller
 
                     if ($match->team2score > $match->team1score) {
                         $wins++;
-                        $totalPoints += 3;
                     } elseif ($match->team2score < $match->team1score) {
                         $losses++;
                         // 0 points
                     } else {
                         $draws++;
-                        $totalPoints += 1;
                     }
                 }
             }
@@ -81,7 +77,7 @@ class RankingController extends Controller
             Ranking::updateOrCreate(
                 ['teamId' => $team->id],
                 [
-                    'points' => $totalPoints,
+                    'points' => $wins * 3 + $draws,
                     'wins' => $wins,
                     'losses' => $losses,
                     'draws' => $draws,
