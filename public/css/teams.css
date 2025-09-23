@@ -33,3 +33,9 @@ p{
 h4{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+a{
+    background-color: #ddd;
+    text-decoration: none;
+    
+}
