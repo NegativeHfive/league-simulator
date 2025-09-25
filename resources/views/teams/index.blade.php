@@ -6,7 +6,20 @@
     <title>Team List</title>
     <link rel="stylesheet" href="{{ asset('css/teams.css') }}">
 </head>
-<body>
+<body style="text-align: center">
+    <div class="links" style="display: flex; width: ;">
+        <form action="{{ route('teams.index') }}" method="GET">
+            <button type="submit" class="btn">View Teams</button>
+        </form>
+
+        <form action="{{ route('match.index') }}" method="GET">
+            <button type="submit" class="btn">Matches</button>
+        </form>
+
+        <form action="{{ route('ranking.index') }}" method="GET">
+            <button type="submit" class="btn">Rankings</button>
+        </form>
+    </div>
     @if(session('success'))
     <div style="color: green; margin-bottom: 10px;">
         {{ session('success') }}
@@ -21,8 +34,10 @@
                 <img src="{{ asset('storage/' . $team->logo) }}" alt="{{ $team->name }}" width="200">
                 <p>{{ $team->description }}</p>
                 <h4>{{ $team->city }}</h4>
-                <a href="{{ route('teams.edit', $team->id) }}">Edit</a><br>
-                <a href="{{ route('teams.delete', $team->id) }}">Delete</a>
+                <div class="aLinks">
+                    <a href="{{ route('teams.edit', $team->id) }}">Edit</a><br>
+                    <a href="{{ route('teams.delete', $team->id) }}">Delete</a>
+                </div>
             </div>
         @endforeach
     </div>
