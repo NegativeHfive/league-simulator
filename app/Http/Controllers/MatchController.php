@@ -11,7 +11,7 @@ class MatchController extends Controller
     //index in getting all the teams
     public function index()
     {
-        $matches = Matches::all();
+        $matches = Matches::all()->shuffle();
         return view('matches.index', compact('matches'));
     }
 

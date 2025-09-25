@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/match.css') }}">
 </head>
 <body>
 
@@ -46,36 +47,32 @@
         <p style="color:green">{{session('success')}}</p>
     @endif
 
+   <div class="fixtures">
     @foreach($matches as $match)
-    <div style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc;">
-        <div style="display: flex; align-items: center; justify-content: space-evenly; width: 100%;">
-            
+        <div class="match-row">
             <!-- Team 1 -->
-            <div style="text-align: center;">
+            <div class="team">
                 @if($match->team1->logo)
-                    <img src="{{ asset('storage/' . $match->team1->logo) }}" alt="{{ $match->team1->name }}" width="50">
+                    <img src="{{ asset('storage/' . $match->team1->logo) }}" alt="{{ $match->team1->name }}">
                 @endif
-                <p>{{ $match->team1->name }}</p>
+                <span class="team-name">{{ $match->team1->name }}</span>
             </div>
 
             <!-- Score -->
-            <div style="text-align: center; align-items: center;">
-                <strong>{{ $match->team1score }} - {{ $match->team2score }}</strong>
-                <p>Points: {{ $match->team1points }} - {{ $match->team2points }}</p>
+            <div class="score">
+                {{ $match->team1score }} - {{ $match->team2score }}
             </div>
 
             <!-- Team 2 -->
-            <div style="text-align: center; align-items: center;">
+            <div class="team">
+                <span class="team-name">{{ $match->team2->name }}</span>
                 @if($match->team2->logo)
-                    <img src="{{ asset('storage/' . $match->team2->logo) }}" alt="{{ $match->team2->name }}" width="50">
+                    <img src="{{ asset('storage/' . $match->team2->logo) }}" alt="{{ $match->team2->name }}">
                 @endif
-                <p>{{ $match->team2->name }}</p>
             </div>
-
         </div>
-    </div>
-@endforeach
-
+    @endforeach
+</div>
    
 </body>
 </html>
