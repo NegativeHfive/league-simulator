@@ -1,5 +1,5 @@
 /* From Uiverse.io by CristianMontoya98 */ 
-.btn{
+a{
  width: 6.5em;
  height: 2.3em;
  margin: 0.5em;
@@ -15,11 +15,11 @@
  overflow: hidden;
 }
 
-button:hover{
+a:hover{
  color: black;
 }
 
-button:after{
+a:after{
  content: "";
  background: white;
  position: absolute;
@@ -32,7 +32,7 @@ button:after{
  transition: all 0.5s;
 }
 
-button:hover:after{
+a:hover:after{
  transform: skewX(-45deg) scale(1, 1);
  -webkit-transition: all 0.5s;
  transition: all 0.5s;

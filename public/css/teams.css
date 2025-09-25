@@ -1,7 +1,12 @@
 body {
     background-color: white;
+    background-image: url('../images/epl\ background.jpg');
+    background-size: contain;
 }
 
+h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .teams {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 per row */
