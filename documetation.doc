@@ -8,3 +8,5 @@ CRUD methods added to TeamController.
 Made a few functions in the Match Controller and Model. 
 Teams can now play against each other once, each team gets 3 if they win 0 for lose and 
 1 for a draw.
+Styling Css for editing teams page and viewing teams page done. This also applies to the ranking
+pages.

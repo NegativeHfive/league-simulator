@@ -4,28 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
 </head>
 <body>
 
+     <div class="links" style="display: flex; width: 100%; justify-content: space-evenly; margin-top: 3%;">
+        <form action="{{ route('dashboard') }}" method="GET">
+            <button type="submit" class="btn">Home</button>
+        </form>
 
-    <form action="{{ route('match.generateMatch') }}" method="POST">
-        @csrf
-        <button type="submit">Generate Fixtures</button>
-    </form><br>
+        <form action="{{ route('teams.index') }}" method="GET">
+            <button type="submit" class="btn">Teams</button>
+        </form>
 
-    <form action="{{ route('match.delete') }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit" onclick="return confirm('Are you sure you want to delete all matches?')">
-            Delete All Matches
-        </button>
-    </form>
+        <form action="{{ route('match.index') }}" method="GET">
+            <button type="submit" class="btn">Matches</button>
+        </form>
 
-    <form action="{{ route('ranking.calculateRankings') }}" method="POST">
-        @csrf
-        <button type="submit">View Rankings</button>
-    </form><br>
+        <form action="{{ route('match.generateMatch') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn">Generate</button>
+        </form>
 
+        <form action="{{ route('match.delete') }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" onclick="return confirm('Are you sure you want to delete all matches?')" class="btn">
+                Delete All 
+            </button>
+        </form>
+
+        
+        <form action="{{ route('ranking.calculateRankings') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn">Rankings</button>
+        </form>
+    </div>
 
     <h1>All Matches</h1>
     @if(session('success'))
