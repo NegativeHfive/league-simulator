@@ -24,6 +24,10 @@
             <button type="submit" class="btn">Matches</button>
         </form>
 
+        <form action="{{ route('ranking.graph') }}" method="GET">
+            <button type="submit" class="btn">Graph</button>
+        </form>
+
         <form action="{{ route('ranking.delete') }}" method="POST">
         @csrf
         @method('DELETE')

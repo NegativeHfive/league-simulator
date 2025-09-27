@@ -40,9 +40,17 @@
             @csrf
             <button type="submit" class="btn">Rankings</button>
         </form>
+
+        <form action="{{ route('ranking.graph') }}" method="GET">
+            @csrf
+            <button type="submit" class="btn">Graph</button>
+        </form>
     </div>
 
     <h1>All Matches</h1>
+    <p style="text-align: center">Please delete the matches with Delete All before you Generate the matches in order to prevent 
+        inaccurate data in the rankings.
+    </p>
     @if(session('success'))
         <p style="color:green">{{session('success')}}</p>
     @endif

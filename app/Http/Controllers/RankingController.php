@@ -18,6 +18,18 @@ class RankingController extends Controller
 
     }
 
+    //display graph with chart js for the teams
+    public function graph()
+    {
+        $rankings = Ranking::with('team')->get(); // getting all the teams
+
+        // preparing labels (team names) and data (wins)
+        $labels = $rankings->map(fn($rankings)=> $rankings->team->name);
+        $wins = $rankings->pluck('wins');
+        $losses = $rankings->pluck('losses');
+        return view('ranking.graph', compact('labels', 'wins', 'losses'));
+    }
+
     //deleting all the rankings 
     public function delete()
     {
