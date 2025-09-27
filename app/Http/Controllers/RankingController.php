@@ -30,6 +30,52 @@ class RankingController extends Controller
         return view('ranking.graph', compact('labels', 'wins', 'losses'));
     }
 
+    //csv export function
+    public function exportCSV()
+    {
+        $filename = 'ranking.csv';
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => "attachment; filename=\"$filename\"",
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0',
+        ];
+
+        return response()->stream(function() {
+            $handle = fopen('php://output', 'w');
+
+            //add CSV headers
+            fputcsv($handle,[
+                'Team',
+                'Wins',
+                'Losses',
+                'Draws',
+                'Points'
+            ]);
+
+            //fetching the data
+            Ranking::chunk(25, function($rankings) use ($handle){
+                foreach ($rankings as $ranking){
+                    $data = [
+                        isset($ranking->team->name) ? $ranking->team->name : '',
+                        isset($ranking->wins) ? $ranking->wins : '',
+                        isset($ranking->losses) ? $ranking->losses : '',
+                        isset($ranking->draws) ? $ranking->draws : '',
+                        isset($ranking->points) ? $ranking->points : '',
+                    ];
+
+                    //write data to the csv file
+                    fputcsv($handle,$data);
+                }
+            });
+
+            //closing the file
+            fclose($handle);
+
+        },200,$headers);
+    }
+
     //deleting all the rankings 
     public function delete()
     {

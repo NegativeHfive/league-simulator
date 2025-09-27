@@ -32,7 +32,10 @@
      <div class="tex" style="text-align: center; width: 70%;">
         <h1>Graph</h1>
         <p>This was made with Chart.js Chart.js is a free, open-source JavaScript library used for creating animated, responsive, and customizable charts on a website. It renders charts using the HTML5 element and supports a variety of chart types, including line, bar, pie, radar, and scatter plots. Its ease of use makes it popular for both developers and designers to visualize data on the web</p>
-        <a href="">Export Data</a>
+       <form action="{{ route('ranking.exportCSV') }}" method="GET">
+            @csrf
+            <button type="submit" class="btn">Export </button>
+        </form>
     </div>
 
    </div>

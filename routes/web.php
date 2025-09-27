@@ -37,3 +37,4 @@ Route::get('teams/ranking', [RankingController::class, 'index'])->name('ranking.
 Route::post('teams/ranking', [RankingController::class, 'calculateRankings'])->name('ranking.calculateRankings');
 Route::delete('teams/delete', [RankingController::class, 'delete'])->name('ranking.delete');
 Route::get('teams/graph', [RankingController::class, 'graph'])->name('ranking.graph');
+Route::get('teams/export', [RankingController::class, 'exportCSV'])->name('ranking.exportCSV');
