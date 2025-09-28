@@ -10,3 +10,5 @@ Teams can now play against each other once, each team gets 3 if they win 0 for l
 1 for a draw.
 Styling Css for editing teams page and viewing teams page done. This also applies to the ranking
 pages.
+Export function added in the Ranking Controller and styling is done. 
+

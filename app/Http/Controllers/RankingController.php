@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class RankingController extends Controller
 {
 
-    //index which shows all the rankings
+    //showing the ranking of teams in order of points (So the team with the highest points)
     public function index()
     {
         $teams = Ranking::orderBy('points', 'desc')->get();
@@ -30,7 +30,7 @@ class RankingController extends Controller
         return view('ranking.graph', compact('labels', 'wins', 'losses'));
     }
 
-    //csv export function
+    //csv export function for exporting the rankings table.
     public function exportCSV()
     {
         $filename = 'ranking.csv';
@@ -83,7 +83,7 @@ class RankingController extends Controller
         return redirect()->back()->with('success', 'Rankings cleared');
     }
 
-    //calculating Rankings 
+    //calculating the rankings
     public function calculateRankings()
     {
         $teams = Team::all();
@@ -92,7 +92,6 @@ class RankingController extends Controller
             // we are getting all the matches where this team played
             $matches = Matches::where('team1Id', $team->id)->orWhere('team2Id', $team->id)->get();
 
-            $totalPoints = 0;
             $goalsScored = 0;
             $goalsAgainst = 0;
             $losses = 0;
@@ -111,7 +110,6 @@ class RankingController extends Controller
                         $wins++;
                     } elseif ($match->team1score < $match->team2score) {
                         $losses++;
-                        // 0 points
                     } else {
                         $draws++;
                     }
@@ -124,7 +122,6 @@ class RankingController extends Controller
                         $wins++;
                     } elseif ($match->team2score < $match->team1score) {
                         $losses++;
-                        // 0 points
                     } else {
                         $draws++;
                     }

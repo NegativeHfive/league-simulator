@@ -11,11 +11,11 @@ class MatchController extends Controller
     //index in getting all the teams
     public function index()
     {
-        $matches = Matches::all()->shuffle();
+        $matches = Matches::all()->shuffle(); // this shuffles the matches displayed.
         return view('matches.index', compact('matches'));
     }
 
-    //generating the Match function
+    //generating matches function
     public function generateMatch()
     {
         $teams = Team::all(); // selecting all the teams
@@ -40,7 +40,7 @@ class MatchController extends Controller
                             'team1points' => 0,
                             'team2points' => 0, 
                         ]);
-                        $match->calculatePoints();
+                        $match->calculatePoints(); // this calculatepoints is from the Model Matches.
                     }
                 }
             }

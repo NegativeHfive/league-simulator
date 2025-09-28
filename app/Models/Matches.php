@@ -35,15 +35,11 @@ class Matches extends Model
             $this->team1points = 0;
             $this->team2points = 3;
         }
-        elseif($this->team1score === $this->team2score){
-            $this->team1points = 1;
-            $this->team2points = 1;
-        }
         else{
             $this->team1points = 1;
             $this->team2points = 1;
-        }
+        } 
 
-        $this->save();
+        $this->save(); // Saving the model the database.
     }
 }

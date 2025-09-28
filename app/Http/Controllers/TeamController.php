@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
+    //rendering the balde file team
     public function create()
     {
         return view('teams.team');
     }
 
+    // this stores the data in the table teams
     public function store(Request $request)
     {
         // validating the input
@@ -88,11 +90,10 @@ class TeamController extends Controller
         $team = Team::findOrFail($id);
 
         //deleting image from the storage folder
-        if($team->logoPath && \Storage::disk('public')->exists($team->logoPath))
+        if($team->logo && Storage::disk('public')->exists($team->logo))
         {
-            \Storage::disk('public')->delete($team->logoPath);
+            Storage::disk('public')->delete($team->logo);
         }
-
         $team->delete();
         
         return redirect()->route('teams.index')->with('success', 'Team deleted');
