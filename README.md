@@ -1,8 +1,8 @@
 # League Simulator
 
-League simulator is basically the laravel version of the previous league simulator project I made from PHP. A project where you can add, edit, update and delete a team basically the CRUD (method).
-The project is made in Laravel with the database postgresSql, with laravel breeze and Chart.JS for the graphs. Why choose Laravel? Laravel is the mostly used in the backend and creating and using the 
-CRUD method in Laravel is way easier and simple. Laravel makes life easier by providing routing and authentication also the csrf feauture is fantastic. 
+League simulator is basically the laravel version of the previous league simulator project I made from vanilla PHP. A project where you can add, edit, update and delete a team basically the CRUD (method).
+This project is made in Laravel with the database postgresSql, with laravel breeze and Chart.JS for the graphs. Why choose Laravel? Laravel is the most used in the backend and making the 
+CRUD method in Laravel is way easier and simple. Laravel makes life easier by providing routing and authentication also the csrf feauture which is fantastic.  
 
 ## Controllers and the functions in these controllers
 There are 4 Controllers in this project. (Match, Profile, Ranking and Team)
@@ -24,9 +24,6 @@ funtion which calculates the amount of points a team has.
 
 ![Screenshot_31](https://github.com/user-attachments/assets/0577aed4-8fe6-4fa9-b0bf-b8fe17efff46)
 ![Screenshot_33](https://github.com/user-attachments/assets/b1dc8c8d-5355-4848-b903-91487645be86)
-
-
-
 
 
 
