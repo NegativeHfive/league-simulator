@@ -1,7 +1,7 @@
 # League Simulator
 
 League simulator is basically the laravel version of the previous league simulator project I made from vanilla PHP. A project where you can add, edit, update and delete a team basically the CRUD (method).
-This project is made in Laravel with the database postgresSql, with laravel breeze and Chart.JS for the graphs. Why choose Laravel? Laravel is the most used in the backend and making the 
+This project is made in Laravel with the database postgresSql, with laravel breeze and Chart.JS for the graphs. Why choose Laravel? Laravel is the most used framwork in the backend and making the 
 CRUD method in Laravel is way easier and simple. Laravel makes life easier by providing routing and authentication also the csrf feauture which is fantastic.  
 
 ## Controllers and the functions in these controllers
