@@ -7,11 +7,15 @@ CRUD method in Laravel is way easier and simple. Laravel makes life easier by pr
 ## Controllers and the functions in these controllers
 There are 4 Controllers in this project. (Match, Profile, Ranking and Team)
 
+## Team 
+In the team controller are there 4 methods. Basically the CRUD method. You can add, update, select and delete a team.
+![Screenshot_32](https://github.com/user-attachments/assets/4dc60b99-e573-4822-b8c4-598ea099fa7e)
+
 ### Match
-Match Controller has 3 funtions, the index to render the list of matches, generateMatch to generate matches by picking 2 random teams from the team table, where by they haven't played against each other. They
+Match Controller has 3 funtions, the index is to render the list of matches, generateMatch is to generate matches by picking 2 random teams from the team table, where by they haven't played against each other. They
 then play against each other and depending on the result each team gets their points, (win = 3, draw = 1, loss = 0) and then the delete function which deletes the whole list of matches generated. Here under is 
 a photo
-![Screenshot_32](https://github.com/user-attachments/assets/4dc60b99-e573-4822-b8c4-598ea099fa7e)
+
 
 ![Screenshot_34](https://github.com/user-attachments/assets/42ae9415-fd5e-45fd-a580-12dd7821354d)
 
@@ -21,9 +25,14 @@ This was provided thanks to Laravel Breeze which helps with setting up logging a
 ### Ranking
 Ranking Controller has 5 functions , the index for showing the rankings in order of points, a display of a graph with the help of CHart.Js an export function, a delete function and  calculateRankings 
 funtion which calculates the amount of points a team has. 
-
 ![Screenshot_31](https://github.com/user-attachments/assets/0577aed4-8fe6-4fa9-b0bf-b8fe17efff46)
+
+
+### Chart Js 
+This gives a graph of the teams with the most wins 
 ![Screenshot_33](https://github.com/user-attachments/assets/b1dc8c8d-5355-4848-b903-91487645be86)
+
+
 
 
 
